@@ -31,11 +31,11 @@ userSchema.pre('save', function (next) {
   });
 });
 
-userSchema.methods.checkPassword = async function (password) {
+userSchema.methods.checkPassword = async function(password) {
   try {
     return await bcrypt.compare(password, this.password);
   } catch (err) {
-    return err;
+    return false;
   }
 }
 
