@@ -5,7 +5,10 @@ const transactionSchema = mongoose.Schema({
   service: String,
   total: Number,
   transactionDate: Date,
-  userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
 },{
   timestamps: true,
 });
