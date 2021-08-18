@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 exports.get_users = async function(req, res) {
   let users = await User.find({}).limit(50);
@@ -9,11 +9,21 @@ exports.get_users = async function(req, res) {
 
 exports.login = async function(req, res) {
   const user = await User.findOne({ email: req.body.email });
-  if (user === null) return res.status(401).json({ status: "failed", error: "Not Found" });
-  
-  const valid = await user.checkPassword(req.body.password);
-  if (!valid) return res.status(401).json({ status: "failed", error: "Wrong Password" });
+  if (user === null) return res.status(401).json({ status: 'failed', error: 'Not Found' });
 
-  const token = jwt.sign({ user: user._id }, process.env.JWT_SECRET);
-  res.status(200).json({ status: "success", token });
+  const valid = await user.checkPassword(req.body.password);
+  if (!valid) return res.status(401).json({ status: 'failed', error: 'Wrong Password' });
+
+  const token = jwt.sign({ user }, process.env.JWT_SECRET);
+  res.cookie('token', token);
+  res.status(200).json({ status: 'success', token });
+}
+
+exports.authenticate_token = async function(req, res, next) {
+  const token = req.cookies.token;
+  if(!token) return res.status(403);
+
+  const { user } = jwt.verify(token, process.env.JWT_SECRET);
+  req.user = user;
+  next();
 }
