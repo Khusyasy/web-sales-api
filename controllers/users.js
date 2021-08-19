@@ -27,3 +27,8 @@ exports.authenticate_token = async function(req, res, next) {
   req.user = user;
   next();
 }
+
+exports.count = async function(req, res) {
+  const count = await User.count({});
+  res.status(200).json({ status: 'success', count });
+}

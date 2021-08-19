@@ -36,3 +36,8 @@ exports.income = async function(req, res) {
 
   res.status(200).json({ status: 'success', total });
 }
+
+exports.count = async function(req, res) {
+  const count = await Transaction.count({});
+  res.status(200).json({ status: 'success', count });
+}
