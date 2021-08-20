@@ -1,13 +1,13 @@
 # API untuk web-sales
-untuk server rest api saya memakai `express` dan `mongodb`
+untuk server rest api saya memakai `express` dan database `mongodb`
 
 ## Setup
 
-pastikan file `.env` sudah ada dan diisi dengan data yang diperlukan.
+pastikan file `.env` sudah ada dan diisi dengan data yang diperlukan seperti contoh dari file `.env.example` (atau jika ingin menggunakan db testing saya silahkan hubungi saya).
 
-`npm run seed` untuk mengisi database dengan random data dummy (bisa berulang kali dan juga saat server berjalan).
+`npm run seed` untuk mengisi database dengan data dummy random (bisa berulang kali dan juga saat server berjalan).
 
-`npm run start` untuk menjalankan server api di `localhost:3000`.
+`npm run start` untuk menjalankan server (`localhost:3000`).
 
 ## APIs
 
