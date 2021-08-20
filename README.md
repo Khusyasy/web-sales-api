@@ -13,7 +13,7 @@ pastikan file `.env` sudah ada dan diisi dengan data yang diperlukan.
 
 ### users
 
-GET `/users`
+#### GET `/users`
 response
 ```json
 [
@@ -30,7 +30,7 @@ response
 ]
 ```
 
-GET `/users/count`
+#### GET `/users/count`
 response
 ```json
 {
@@ -39,7 +39,7 @@ response
 }
 ```
 
-POST `/users/login`
+#### POST `/users/login`
 data
 | key | required |
 | --- | --- |
@@ -54,7 +54,7 @@ response
 }
 ```
 
-POST `/users/logout`
+#### POST `/users/logout`
 response
 ```json
 {
@@ -64,7 +64,7 @@ response
 
 ### transactions
 
-GET `/transactions`
+#### GET `/transactions`
 response
 ```json
 [
@@ -82,7 +82,7 @@ response
 ]
 ```
 
-GET `/transactions/count`
+#### GET `/transactions/count`
 response
 ```json
 {
@@ -91,7 +91,7 @@ response
 }
 ```
 
-GET `/transactions/income`
+#### GET `/transactions/income`
 query
 | key | required |
 | --- | --- |
