@@ -9,10 +9,10 @@ exports.get_users = async function(req, res) {
 
 exports.login = async function(req, res) {
   const user = await User.findOne({ email: req.body.email });
-  if (user === null) return res.status(401).json({ status: 'failed', error: 'Not Found' });
+  if (user === null) return res.status(200).json({ status: 'failed', error: { email: 'Not Found' } });
 
   const valid = await user.checkPassword(req.body.password);
-  if (!valid) return res.status(401).json({ status: 'failed', error: 'Wrong Password' });
+  if (!valid) return res.status(200).json({ status: 'failed', error: { password: 'Wrong Password' } });
 
   const token = jwt.sign({ user }, process.env.JWT_SECRET);
   res.cookie('token', token);
