@@ -19,6 +19,11 @@ exports.login = async function(req, res) {
   res.status(200).json({ status: 'success', token });
 }
 
+exports.logout = async function(req, res) {
+  res.clearCookie('token');
+  res.status(200).json({ status: 'success' });
+}
+
 exports.authenticate_token = async function(req, res, next) {
   const token = req.cookies.token;
   if(!token) return res.status(403);
