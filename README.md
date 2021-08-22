@@ -2,12 +2,24 @@
 untuk server rest api saya memakai `express` dan database `mongodb`
 
 ## Setup
+node version `v14.17.0`
 
-pastikan file `.env` sudah ada dan diisi dengan data yang diperlukan seperti contoh dari file `.env.example` (atau jika ingin menggunakan db testing saya silahkan hubungi saya).
+### Instalasi package
+```bash
+npm install
+```
 
-`npm run seed` untuk mengisi database dengan data dummy random (bisa berulang kali dan juga saat server berjalan).
+### Mengisi database
+database akan diisi dengan data dummy.
+```bash
+npm run seed
+```
 
-`npm run start` untuk menjalankan server (`localhost:3000`).
+### Menjalankan server
+server akan berjalan di port `3000` (`localhost:3000`).
+```bash
+npm run start
+```
 
 ## APIs
 
